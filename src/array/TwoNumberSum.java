@@ -24,11 +24,6 @@ public class TwoNumberSum {
     //Use HashMap to store and search for numbers
     //What you store --> 3 in key and array index in value
     //What you search --> search for remainder i.e. 7
-    public static void main(String[] args) {
-        Arrays.asList(searchForPair(new int[] {3, 5, -4, 8, 11, 1, -1, 6}, 10))
-                .stream()
-                .forEach(e -> System.out.println(e));
-    }
 
     public static int[] searchForPair(int[] array, int targetNum) {
         Map<Integer, Integer> container = new HashMap<>();

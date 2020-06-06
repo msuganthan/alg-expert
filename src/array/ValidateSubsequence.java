@@ -12,13 +12,11 @@ import java.util.List;
  * are both valid sub-sequences of the array.
  */
 public class ValidateSubsequence {
-    public static void main(String[] args) {
-        //A is the master data
-        //B is the data u need to validate
-        //Move the a
-        //Move the b when u found some element in a
-        //True if b-sequencing is equal to b sizing
-    }
+    //A is the master data
+    //B is the data u need to validate
+    //Move the a
+    //Move the b when u found some element in a
+    //True if b-sequencing is equal to b sizing
 
     public static boolean isValidSubsequence(List<Integer> array, List<Integer> sequence) {
         int masterDataSequence = 0;

@@ -7,6 +7,20 @@ package binarySearch;
  */
 public class ValidateBST {
 
+    //Tree
+    //         10
+    //       /    \
+    //      5     15
+    //     / \   /  \
+    //    2   5 13  22
+    //   /        \
+    //  1         14
+    // The node 5 is value if it less than 10
+    // In other word
+    //  tree.left.value is valid
+    //  if
+    //      tree.left.value(value) < tree.value (maxValue)
+    //
     public static boolean validateBst(BST tree) {
         //Left  tree is valid if all the value is lesser  than the current node.
         //Right tree is valid if all the value is greater than the current node.
@@ -14,17 +28,16 @@ public class ValidateBST {
     }
 
     static boolean validateBst(BST tree, int minValue, int maxValue) {
-        //The tree's value should be greater than the minValue
-        //The tree's value should be lesser  than the maxValue
+        if (tree == null)
+            return true;
+
+        //[Left tree] If the value is lesser  than           min value
+        //[rigt tree] If the value is greater than or equals max value
+        //Then the tree is invalid
         if (tree.value < minValue || tree.value >= maxValue)
             return false;
-
-        if (tree.left != null && !validateBst(tree.left, minValue, tree.value))
-            return false;
-
-        if (tree.right != null && !validateBst(tree.right, tree.value, maxValue))
-            return false;
-        return true;
+        
+        return validateBst(tree.left, minValue, tree.value) && validateBst(tree.right, tree.value, maxValue) ;
     }
 
     static class BST {

@@ -36,7 +36,7 @@ public class ValidateBST {
         //Then the tree is invalid
         if (tree.value < minValue || tree.value >= maxValue)
             return false;
-        
+
         return validateBst(tree.left, minValue, tree.value) && validateBst(tree.right, tree.value, maxValue) ;
     }
 
@@ -46,7 +46,7 @@ public class ValidateBST {
         public BST right;
 
         public BST(int value) {
-          this.value = value;
+            this.value = value;
         }
     }
 }

@@ -1,13 +1,13 @@
-package array;
+package algo_expert.array;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Function that takes in an x m two dimensional array and returns a one-dimensional array
- * of all the array's elements in spiral order.
+ * Function that takes in an x m two dimensional algo_expert.array and returns a one-dimensional algo_expert.array
+ * of all the algo_expert.array's elements in spiral order.
  *
- * Spiral order start at the top left corner of the two-dimensional array, goes to the right
+ * Spiral order start at the top left corner of the two-dimensional algo_expert.array, goes to the right
  * and proceeds in a spiral pattern all the way until every element has been visited.
  */
 public class SpiralFill {

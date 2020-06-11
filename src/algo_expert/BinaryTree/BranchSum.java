@@ -1,7 +1,15 @@
-package BinaryTree;
+package algo_expert.BinaryTree;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Write a function that takes in a binary tree and returns a list of its branch sums
+ * ordered from leftmost branch sum to rightmost branch sum.
+ *
+ * A branch sum is the sum of all values in a Binary Tree branch. A binary tree branch is
+ * a path of nodes in a tree that starts at the root node and ends at any leaf node.
+ */
 
 public class BranchSum {
 

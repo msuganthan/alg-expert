@@ -1,4 +1,4 @@
-package binarySearch;
+package algo_expert.binarySearch;
 
 import java.util.List;
 

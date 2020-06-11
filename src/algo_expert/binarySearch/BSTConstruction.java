@@ -1,4 +1,4 @@
-package binarySearch;
+package algo_expert.binarySearch;
 
 /**
  * Write a BST class for the Binary Search Tree. The class should support

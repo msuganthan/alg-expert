@@ -1,4 +1,4 @@
-package binarySearch;
+package algo_expert.binarySearch;
 
 /**
  * Write a function that takes in a Binary Search Tree and a target integer value

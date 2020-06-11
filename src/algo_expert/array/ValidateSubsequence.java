@@ -1,15 +1,15 @@
-package array;
+package algo_expert.array;
 
 import java.util.List;
 
 /**
  * Given two non-empty arrays of integers, write a function that determines
- * whether the second array is sub-sequence of the first one.
+ * whether the second algo_expert.array is sub-sequence of the first one.
  *
- * A subsequence of an array is a set of numbers that aren't necessarily adjacent in the array but that
- * are in the same order as they appear in the array. For instance [1, 3, 4] form a subsequence of
- * the array [1,2,3,4], and so do the numbers [2,4]. Note that a single number in an array itself
- * are both valid sub-sequences of the array.
+ * A subsequence of an algo_expert.array is a set of numbers that aren't necessarily adjacent in the algo_expert.array but that
+ * are in the same order as they appear in the algo_expert.array. For instance [1, 3, 4] form a subsequence of
+ * the algo_expert.array [1,2,3,4], and so do the numbers [2,4]. Note that a single number in an algo_expert.array itself
+ * are both valid sub-sequences of the algo_expert.array.
  */
 public class ValidateSubsequence {
     //A is the master data

@@ -1,16 +1,16 @@
-package array;
+package algo_expert.array;
 
 import java.util.Arrays;
 
 /**
  * Write a function that takes in two non-empty arrays of integers, finds the pair of numbers
- * whose absolute difference is closest to zero and returns an array containing these two
- * numbers, with the number from the first array in the first position.
+ * whose absolute difference is closest to zero and returns an algo_expert.array containing these two
+ * numbers, with the number from the first algo_expert.array in the first position.
  * arrayOne = [-1, 5, 10, 20, 28, 3]
  * arrayTwo = [26, 134, 135, 15, 17]
  */
 public class SmallestDifference {
-    //For some reason we are sorting both the array
+    //For some reason we are sorting both the algo_expert.array
     // arrayOne = [-1, 3, 5, 10, 20, 28]
     // arrayTwo = [15, 17, 26, 134, 135]
     //|-1 - 15| == 16

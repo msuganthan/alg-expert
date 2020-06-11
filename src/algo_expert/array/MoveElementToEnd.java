@@ -1,14 +1,14 @@
-package array;
+package algo_expert.array;
 
 import java.util.List;
 
 /**
- * You are given an array of integer and an integer. Write a function that moves all instances
- * of that integer in the array to the end of the array and return the array.
+ * You are given an algo_expert.array of integer and an integer. Write a function that moves all instances
+ * of that integer in the algo_expert.array to the end of the algo_expert.array and return the algo_expert.array.
  *
  * The function should perform this in-place.
  *
- * array  = [2, 1, 2, 2, 2, 3, 4, 2]
+ * algo_expert.array  = [2, 1, 2, 2, 2, 3, 4, 2]
  * toMove = 2
  */
 public class MoveElementToEnd {

@@ -1,4 +1,4 @@
-package binarySearch;
+package algo_expert.binarySearch;
 
 /**
  * Write a function that takes in a potentially invalid BST and returns a boolean

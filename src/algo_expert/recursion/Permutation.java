@@ -24,6 +24,9 @@ public class Permutation {
         return permutations;
     }
 
+    /**
+     * ToDo: I understand only the concept
+     */
     static void getPermutations(int i, List<Integer> array, List<List<Integer>> permutations) {
         if (i == array.size() - 1)
             permutations.add(new ArrayList<>(array));

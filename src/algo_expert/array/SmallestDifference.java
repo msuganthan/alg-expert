@@ -10,6 +10,12 @@ import java.util.Arrays;
  * arrayTwo = [26, 134, 135, 15, 17]
  */
 public class SmallestDifference {
+	public static void main(String[] args) {
+		int[] ints = smallestDifference(new int[]{-1, 5, 10, 20, 28, 3}, new int[]{26, 134, 135, 15, 17});
+		for (int i : ints)
+			System.out.println(i);
+	}
+
     //For some reason we are sorting both the algo_expert.array
     // arrayOne = [-1, 3, 5, 10, 20, 28]
     // arrayTwo = [15, 17, 26, 134, 135]
@@ -32,30 +38,33 @@ public class SmallestDifference {
     //smallest = 2
 
     public static int[] smallestDifference(int[] arrayOne, int[] arrayTwo) {
+		long current = System.currentTimeMillis();
         Arrays.sort(arrayOne);
 		Arrays.sort(arrayTwo);
-		int firstArrayPointer  = 0;
+    	int[] result = new int[2];
+		int firstArrayPointer = 0;
 		int secondArrayPointer = 0;
-		int smallest			     = Integer.MAX_VALUE;
-		int current 				   = Integer.MAX_VALUE;
-		int[] smallestPair     = new int[2];
+		int smallest = Integer.MAX_VALUE;
+		int currentDifference = Integer.MAX_VALUE;
 		while(firstArrayPointer < arrayOne.length && secondArrayPointer < arrayTwo.length) {
-			int firstArrayElement  = arrayOne[firstArrayPointer];
-			int secondArrayElement = arrayTwo[secondArrayPointer];
-			if(firstArrayElement < secondArrayElement) {
-				current = secondArrayElement - firstArrayElement;
+			int firstPointerElement  = arrayOne[firstArrayPointer];
+			int secondPointerElement = arrayTwo[secondArrayPointer];
+			currentDifference        = Math.abs(firstPointerElement - secondPointerElement);
+
+			if(firstPointerElement < secondPointerElement)
 				firstArrayPointer++;
-			} else if(secondArrayElement < firstArrayElement) {
-				current = firstArrayElement - secondArrayElement;
+			else if(firstPointerElement > secondPointerElement)
 				secondArrayPointer++;
-			} else {
-				return new int[] {firstArrayElement, secondArrayElement};
+			else
+				return new int[] {firstPointerElement, secondPointerElement}; //Special case when both the elements are equal what should happen.
+
+			if(currentDifference < smallest) {
+				smallest = currentDifference;
+				result = new int[] {firstPointerElement, secondPointerElement};
 			}
-			if(current < smallest) {
-				smallest = current;
-				smallestPair = new int[] {firstArrayElement, secondArrayElement};
- 			}
+
 		}
-		return smallestPair;
+		System.out.println("Total time taken : "+ (System.currentTimeMillis() - current));
+		return result;
   }
 }

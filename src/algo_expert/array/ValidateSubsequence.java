@@ -1,5 +1,6 @@
 package algo_expert.array;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,14 +19,20 @@ public class ValidateSubsequence {
     //Move the b when u found some element in a
     //True if b-sequencing is equal to b sizing
 
+	public static void main(String[] args) {
+		System.out.println(isValidSubsequence(Arrays.asList(5, 1, 22, 25, 6, -1, 8, 10), Arrays.asList(1, 6, -1, 10)));
+	}
+
     public static boolean isValidSubsequence(List<Integer> array, List<Integer> sequence) {
-        int masterDataSequence = 0;
-        int subDataSequence    = 0;
-        while (masterDataSequence < array.size() && subDataSequence < sequence.size()) {
-            if (array.get(masterDataSequence).equals(sequence.get(subDataSequence)))
-                subDataSequence++;
-            masterDataSequence++;
-        }
-        return subDataSequence == sequence.size();
+        int firstArrayPointer = 0;
+		int secondArrayPointer = 0;
+		while(firstArrayPointer < array.size() && secondArrayPointer < sequence.size()) {
+			int firstArrayElement = array.get(firstArrayPointer);
+			int secondArrayElement = sequence.get(secondArrayPointer);
+			if(firstArrayElement == secondArrayElement)
+				secondArrayPointer++;
+			firstArrayPointer++;
+		}
+		return secondArrayPointer == sequence.size();
     }
 }

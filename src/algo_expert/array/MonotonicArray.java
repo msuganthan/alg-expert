@@ -10,6 +10,10 @@ package algo_expert.array;
  * [-1, -5, -10, -1100, -1100, -1101, -1102, -9001]
  */
 public class MonotonicArray {
+    public static void main(String[] args) {
+        isMonotonic(new int[] {-1, -5, -10, -1100, -1100, -1101, -1102, -9001});
+    }
+
     public static boolean isMonotonic(int[] array) {
         boolean increasing = true;
         boolean decreasing = true;

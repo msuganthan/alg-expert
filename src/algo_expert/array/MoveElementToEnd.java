@@ -1,5 +1,6 @@
 package algo_expert.array;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -12,18 +13,25 @@ import java.util.List;
  * toMove = 2
  */
 public class MoveElementToEnd {
+    public static void main(String[] args) {
+        moveElementToEnd(Arrays.asList(new Integer[] { 2, 1, 2, 2, 2, 3, 4, 2}), 2)
+                .stream()
+                .forEach(System.out::print);
+    }
+
     public static List<Integer> moveElementToEnd(List<Integer> array, int toMove) {
         //Maintain two pointer leftpointer, rigtPointer
         //Move the right pointer inwards as longs it point to the integer to move
         //Move the left pointer inwards as long as it doesn't point to the integer to move.
-        int leftPointer = 0;
-        int rigtPointer = array.size() - 1;
-        while(leftPointer < rigtPointer) {
-            while (leftPointer < rigtPointer && array.get(rigtPointer) == toMove) rigtPointer--;
-                if (array.get(leftPointer) == toMove) swap(leftPointer, rigtPointer, array);
-            leftPointer++;
-        }
-        return array;
+        int pointer = array.size() - 1;
+		for(int i = 0; i < pointer; i++) {
+		    if(array.get(i) == toMove) {
+		        while(i < pointer && array.get(pointer) == toMove)
+				    pointer--;
+		        swap(i, pointer, array);
+            }
+		}
+		return array;
     }
 
     private static void swap(int i, int j, List<Integer> array) {

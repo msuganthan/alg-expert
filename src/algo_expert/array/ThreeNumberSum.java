@@ -18,6 +18,16 @@ import java.util.List;
  * Output: [[-8,2,6], [-8,3,5], [-6,1,5]]
  */
 public class ThreeNumberSum {
+    public static void main(String[] args) {
+        List<Integer[]> integers = threeNumberSum(new int[]{12, 3, 1, 2, -6, 5, -8, 6}, 0);
+        for (Integer[] integerArray : integers) {
+            for (int i = 0; i < integerArray.length; i++) {
+                System.out.print(integerArray[i]);
+            }
+            System.out.print("\n");
+        }
+    }
+
     //Sort the given algo_expert.array -8, -6, 1, 2, 3, 5, 6, 12
     //Consider -8 as your first number
     //-6 as second number & 12 as third number
@@ -38,24 +48,28 @@ public class ThreeNumberSum {
     //Continue the same from -6
 
     public static List<Integer[]> threeNumberSum(int[] array, int targetSum) {
-        List<Integer[]> result = new ArrayList<>();
-        Arrays.sort(array);
-        for (int i = 0; i < array.length -1; i++) {
-            int leftPointer   = i + 1;
-            int rigtPointer   = array.length - 1;
-            while (leftPointer < rigtPointer) {
-                int sum = array[i] + array[leftPointer] + array[rigtPointer];
-                if (sum == targetSum) {
-                    result.add(new Integer[] { array[i], array[leftPointer], array[rigtPointer]});
-                    leftPointer++;
-                    rigtPointer--;
+            Arrays.sort(array);
+            List<Integer[]> result = new ArrayList<>();
+            for(int i = 0; i < array.length - 2; i++) {
+                int firstElement = array[i];
+                int firstPointer = i + 1;
+                int secondPointer = array.length - 1;
+
+                while(firstPointer < secondPointer) {
+                    int firstPointerElement = array[firstPointer];
+                    int secondPointerElement = array[secondPointer];
+                    int totalSum = firstElement + firstPointerElement + secondPointerElement;
+                    if(totalSum == targetSum) {
+                        result.add(new Integer[]{firstElement, firstPointerElement, secondPointerElement});
+                        firstPointer++;
+                        secondPointer--;
+                    }
+                    else if (totalSum < targetSum)
+                        firstPointer++;
+                    else
+                        secondPointer--;
                 }
-                if (sum < targetSum)
-                    leftPointer++;
-                else if (sum > targetSum)
-                    rigtPointer--;
             }
-        }
-        return result;
+            return result;
     }
 }

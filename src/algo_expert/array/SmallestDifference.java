@@ -38,7 +38,6 @@ public class SmallestDifference {
     //smallest = 2
 
     public static int[] smallestDifference(int[] arrayOne, int[] arrayTwo) {
-		long current = System.currentTimeMillis();
         Arrays.sort(arrayOne);
 		Arrays.sort(arrayTwo);
     	int[] result = new int[2];
@@ -51,12 +50,14 @@ public class SmallestDifference {
 			int secondPointerElement = arrayTwo[secondArrayPointer];
 			currentDifference        = Math.abs(firstPointerElement - secondPointerElement);
 
+			if (currentDifference == 0)
+				return new int[] {firstPointerElement, secondPointerElement}; //Special case when both the elements are equal what should happen.
+
 			if(firstPointerElement < secondPointerElement)
 				firstArrayPointer++;
-			else if(firstPointerElement > secondPointerElement)
-				secondArrayPointer++;
 			else
-				return new int[] {firstPointerElement, secondPointerElement}; //Special case when both the elements are equal what should happen.
+				secondArrayPointer++;
+
 
 			if(currentDifference < smallest) {
 				smallest = currentDifference;
@@ -64,7 +65,6 @@ public class SmallestDifference {
 			}
 
 		}
-		System.out.println("Total time taken : "+ (System.currentTimeMillis() - current));
 		return result;
   }
 }

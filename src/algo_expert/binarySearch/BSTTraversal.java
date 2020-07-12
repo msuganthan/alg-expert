@@ -41,28 +41,19 @@ public class BSTTraversal {
         inOrderTraverse(tree10, inOrderElements);
         System.out.println("***************In Order***************");
         inOrderElements.stream()
-                        .forEach(integer -> {
-                            System.out.print(" ");
-                            System.out.print(integer);
-                        });
+                        .forEach(integer -> System.out.print(integer+ " "));
 
         List<Integer> preOrderTraverse = new ArrayList<>();
         preOrderTraverse(tree10, preOrderTraverse);
         System.out.println("\n***************Pre Order***************");
         preOrderTraverse.stream()
-                        .forEach(integer -> {
-                            System.out.print(" ");
-                            System.out.print(integer);
-                        });
+                        .forEach(integer -> System.out.print(integer+ " "));
 
         List<Integer> postOrderTraverse = new ArrayList<>();
         postOrderTraverse(tree10, postOrderTraverse);
         System.out.println("\n***************Post Order***************");
         postOrderTraverse.stream()
-                        .forEach(integer -> {
-                            System.out.print(" ");
-                            System.out.print(integer);
-                        });
+                        .forEach(integer -> System.out.print(integer+ " "));
 
     }
 

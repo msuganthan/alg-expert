@@ -16,9 +16,9 @@ public class InvertBinaryTree {
     }
 
     static void swapLeftAndRight(BinaryTree tree) {
-        BinaryTree left = tree.left;
-        tree.left       = tree.right;
-        tree.right      = left;
+        BinaryTree temp = tree.left;
+        tree.left = tree.right;
+        tree.right = temp;
     }
 
     static class BinaryTree {

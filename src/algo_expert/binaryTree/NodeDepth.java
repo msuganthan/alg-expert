@@ -1,4 +1,4 @@
-package algo_expert.BinaryTree;
+package algo_expert.binaryTree;
 
 /**
  * This distance between a node in a binary tree and the tree's root is called the node's depth.

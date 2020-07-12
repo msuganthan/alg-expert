@@ -1,4 +1,4 @@
-package algo_expert.BinaryTree;
+package algo_expert.binaryTree;
 
 /**
  * Write a function that takes in a Binary Tree and inverts it. In other words, the function

@@ -17,21 +17,13 @@ public class BranchSum {
 
     public static void main(String[] args) {
         //Tree
-        //         10
-        //       /    \
-        //      5     15
-        //     / \   /  \
-        //    2   5 13  22
-        //   /        \
-        //  1         14
-        //Tree
-        //         10
-        //       /    \
-        //      5     15
-        //     / \   /  \
-        //    2   5 13  22
-        //   /        \
-        //  1         14
+        //           1
+        //        /     \
+        //       2       3
+        //    /    \    /   \
+        //   4      5  6     7
+        //  /  \   /
+        // 8    9 10
 
         BinaryTree tree10 = new BinaryTree(10);
         BinaryTree tree9 = new BinaryTree(9);

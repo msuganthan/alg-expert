@@ -8,31 +8,41 @@ public class TrieImplementation {
         root = new TrieNode();
     }
 
-    void insert(String word) {
-        TrieNode current = root;
-
+    /** Adds a word into the data structure. */
+    public void addWord(String word) {
+        TrieNode node = root;
         for (char c : word.toCharArray()) {
-            if (current.children[c - 'a'] == null)
-                current.children[c - 'a'] = new TrieNode();
-            current = current.children[c - 'a'];
+            if (node.children[c - 'a'] == null) {
+                node.children[c - 'a'] = new TrieNode();
+            }
+            node = node.children[c - 'a'];
         }
+        node.isWord = true;
 
-        current.isWord = true;
     }
 
+    /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
     public boolean search(String word) {
-        return match(word.toCharArray(), 0, root);
+        return match(word.toCharArray(), 0 , root);
     }
 
-    boolean match(char[] chars, int n, TrieNode node) {
-        if (n == chars.length)
+
+    private boolean match(char[] chs, int k, TrieNode node) {
+        if (k == chs.length) {
             return node.isWord;
+        }
+        if (chs[k] == '.') {
+            for (int i = 0; i < node.children.length; i++) {
+                if (node.children[i] != null && match(chs, k + 1, node.children[i])) {
+                    return true;
+                }
+            }
+        } else {
+            return node.children[chs[k] - 'a'] != null && match(chs, k + 1, node.children[chs[k] - 'a']);
+        }
+        return false;
 
-        int charIndex = chars[n] - 'a';
-        return node.children[charIndex] != null && match(chars, n + 1, node.children[charIndex]);
     }
-
-
 
     static class TrieNode {
         public TrieNode[] children = new TrieNode[26];
@@ -41,9 +51,8 @@ public class TrieImplementation {
 
     public static void main(String[] args) {
         TrieImplementation trie = new TrieImplementation();
-        trie.insert("apple");
-        trie.insert("abc");
+        trie.addWord("dad");
 
-        System.out.println(trie.search("abc"));
+        System.out.println(trie.search(".ad"));
     }
 }

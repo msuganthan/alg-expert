@@ -53,6 +53,6 @@ public class TrieImplementation {
         TrieImplementation trie = new TrieImplementation();
         trie.addWord("dad");
 
-        System.out.println(trie.search(".ad"));
+        trie.search(".ad");
     }
 }

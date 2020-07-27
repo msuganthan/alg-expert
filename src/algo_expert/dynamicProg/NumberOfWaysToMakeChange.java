@@ -1,5 +1,7 @@
 package algo_expert.dynamicProg;
 
+import java.util.Arrays;
+
 /**
  * Given an array of positive integers representing coin denominations and a single non-negative
  * integer `n` representing a target amount of money, write a function that returns the number of
@@ -16,16 +18,20 @@ package algo_expert.dynamicProg;
  */
 
 public class NumberOfWaysToMakeChange {
-    public static int numberOfWaysToMakeChange(int n, int[] denoms) {
-        int[] ways = new int[n + 1];
-        ways[0]    = 1;
-        for (int denom : denoms) {
-            for (int amount = 1; amount < n + 1; amount++) {
-                if (denom <= amount) {
-                    ways[amount] += ways[amount - denom];
+    public static void main(String[] args) {
+        System.out.println(numberOfWaysToMakeChange(11, new int[] {1,2, 5}));
+    }
+    public static int numberOfWaysToMakeChange(int targetAmount, int[] denoms) {
+        int[] dp = new int[targetAmount+1];
+		Arrays.fill(dp, targetAmount + 1);
+		dp[0] = 0;
+        for (int amount = 1; amount <= targetAmount ; amount++) {
+            for (int j = 0; j < denoms.length; j++) {
+                if (denoms[j] <= amount) {
+                    dp[amount] = Math.min(dp[amount], 1 + dp[amount - denoms[j]]); // 1 plus next best.
                 }
             }
         }
-        return ways[n];
+		return dp[targetAmount] > targetAmount ? -1 : dp[targetAmount];
     }
 }

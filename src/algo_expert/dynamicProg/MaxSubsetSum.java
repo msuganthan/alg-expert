@@ -32,17 +32,18 @@ package algo_expert.dynamicProg;
 public class MaxSubsetSum {
 
     static int maxSubsetSumNoAdjacent(int[] array) {
-        if (array.length == 0)
+        if(array.length == 0)
             return 0;
-        if (array.length == 1)
+        else if(array.length == 1)
             return array[0];
-        int second = array[0];
-        int first  = Math.max(array[0], array[1]);
+
+        int[] maxSum = array.clone();
+        maxSum[1]    = Math.max(array[0], array[1]);
+
+
         for (int i = 2; i < array.length; i++) {
-            int current = Math.max(first, second + array[i]);
-            second      = first;
-            first       = current;
+            maxSum[i] = Math.max(maxSum[i - 2] + maxSum[i],  maxSum[i -1]);
         }
-        return first;
+        return maxSum[array.length - 1];
     }
 }

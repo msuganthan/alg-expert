@@ -10,21 +10,20 @@ public class KnapSack {
     }
 
     static List<List<Integer>> knapsackProblem(int[][] items, int capacity) {
-        int[][] knapsackValue = new int[items.length + 1][capacity + 1];
+        int[][] knapsack = new int[items.length + 1][capacity + 1];
 
-        for (int i = 1; i < items.length + 1; i++) {
-            int currentWeight = items[i - 1][1];
+        for (int i = 0; i < items.length + 1; i++) {
             int currentValue  = items[i - 1][0];
+            int currentWeight = items[i - 1][1];
 
             for (int c = 0; c < capacity + 1; c++) {
                 if (currentWeight > c)
-                    knapsackValue[i][c] = knapsackValue[i - 1][c];
+                    knapsack[i][c] = knapsack[i - 1][c];
                 else
-                    //We are creating a 2d knapsack and try to put the item which bring more profit.
-                    knapsackValue[i][c] = Math.max(knapsackValue[i - 1][c], knapsackValue[i - 1][c - currentWeight] + currentValue);
+                    knapsack[i][c] = Math.max(knapsack[i - 1][c], knapsack[i - 1][c - currentWeight] + currentValue);
             }
         }
-        return getKnapSackItems(knapsackValue, items, knapsackValue[items.length][capacity]);
+        return getKnapSackItems(knapsack, items, knapsack[items.length][capacity]);
     }
 
     public static List<List<Integer>> getKnapSackItems(int[][] knapsackValues, int[][] items, int weight) {
@@ -36,12 +35,10 @@ public class KnapSack {
         int i = knapsackValues.length - 1;
         int c = knapsackValues[0].length - 1;
         while (i > 0) {
-            //IS the row above is equal to our current row
-            if (knapsackValues[i][c] == knapsackValues[i - 1][c])
+            if (knapsackValues[i][c] == knapsackValues[i-1][c])
                 i--;
             else {
-                sequence.get(1).add(0, i - 1);
-                //evaluating c
+                sequence.get(1).add(0, i -1);
                 c -= items[i - 1][1];
                 i--;
             }
